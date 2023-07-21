@@ -3,6 +3,7 @@ package com.ticket_management.Model;
 import java.util.Date;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -26,6 +27,7 @@ public class Ticket {
 	
 	@CreationTimestamp
 	@Column(nullable = false, updatable = false)
+	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private Date created_on;
 	
 	private String ticket_title;

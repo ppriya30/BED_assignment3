@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous">
+	
+<!--<link rel="stylesheet" href="MyStyle.css" type="text/css">-->
+
+<title>Create Employee</title>
+<style>
+
+
+
+
+</style>
+
+</head>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+ <a class="navbar-brand" href="#">Ticket Tracker Application</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/ticket/list}">Tickets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/ticket/newTicket}">New Ticket</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+	<div class="container">
+		<div class="centered">
+		<div class = "col-lg-6 col-sm-6 container justify-content-center card">
+		
+
+			 
+			
+		<hr> 
+
+			<p class="h4 mb-4">Edit Ticket</p>
+
+			<form action="#" th:action="@{/ticket/save}"
+				th:object="${tickets}" method="POST">
+
+				<!-- Add hidden form field to handle update -->
+				<input type="hidden" th:field="*{id}" />
+
+				<h5>Title</h5>
+				<input type="text" th:field="*{ticket_title}"
+					class="form-control mb-4 col-4" placeholder="Enter ticket title">
+
+				<h5>Short Description</h5>
+				<input type="text" th:field="*{description}"
+					class="form-control mb-4 col-4" placeholder="Enter ticket description">
+
+				
+
+				<button type="submit" class="btn btn-info col-2">SUBMIT</button>
+
+			</form>
+
+		
+		</div>
+		</div>
+		</div>
+</body>
+
+</html>

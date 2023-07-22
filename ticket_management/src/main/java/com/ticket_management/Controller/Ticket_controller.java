@@ -96,7 +96,7 @@ public class Ticket_controller {
 	}
 	
 	
-	@GetMapping("/deleteticket")
+	@PostMapping("/deleteticket")
 	public String deleteticket(@RequestParam("tick_id") int t_id) {
 		ticket_Service.deleteTicket(t_id);
 		return "redirect:/ticket/list";
@@ -104,10 +104,10 @@ public class Ticket_controller {
 	
 	
 	@PostMapping("/Searchticket")
-	public String Searchticket(@RequestParam("Search")String search_tick ,Model model ) {
+	public String Searchticket(@RequestParam("search")String search_tick ,Model model ) {
 		
 		List <Ticket> search_list_ticket=ticket_Service.searchTicket(search_tick);
-		model.addAttribute("S_tickets", search_list_ticket);
+		model.addAttribute("tickets", search_list_ticket);
 		return "collection/list_ticket";
 	}
 

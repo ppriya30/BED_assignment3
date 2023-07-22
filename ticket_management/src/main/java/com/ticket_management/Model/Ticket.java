@@ -5,6 +5,9 @@ import java.util.Date;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,7 +30,9 @@ public class Ticket {
 	
 	@CreationTimestamp
 	@Column(nullable = false, updatable = false)
+	
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	@JsonFormat(pattern = "dd-MM-yyyy" , shape =Shape.STRING)
 	private Date created_on;
 	
 	private String ticket_title;
